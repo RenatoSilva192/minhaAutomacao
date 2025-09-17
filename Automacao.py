@@ -37,6 +37,7 @@ pyautogui.write("Jornal Jovem Pan ao vivo")
 pyautogui.press("enter")
 pyautogui.sleep(3)
 pyautogui.click(x=3258, y=430)
+pyautogui.sleep(3)
 
 # Passo 4: Abrir uma nova aba no navegador, abrir a "https://www.udemy.com/home/my-courses/learning/"
 
@@ -46,14 +47,14 @@ pyautogui.press("enter")
 pyautogui.sleep(4)
 
 
-# Passo 5: Abrir o aplicativo "Steam" e ir para a biblioteca
+# Passo 5: Abrir o aplicativo "Xbox" 
 
 pyautogui.press("Win")
 pyautogui.write("Xbox")
 pyautogui.press("enter")
 pyautogui.sleep(4)
 
-# Passo 6: Abrir o aplicativo "Xbox" e ir para a biblioteca
+# Passo 6: Abrir o aplicativo "Steam" e ir para a biblioteca
 
 pyautogui.press("Win")
 pyautogui.write("Steam")
