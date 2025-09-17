@@ -1,113 +1,63 @@
 # Automação para o meu computador, inicialização diária, simplesmente enquanto pego um café.
-# Passo 1: Entrar no Sistema da empresa: https://dlp.hashtagtreinamentos.com/python/intensivao/login
-# Passo 2: Fazer login
-# Passo 3: Importar a base de dados
-# Passo 4: Cadastrar 1 produto
-# Passo 5: Repetir para todos os produtos
-# Biblioteca = pyautogui
+# Passo 1: Abrir o navegador e acessar a página do web.whatsapp.com
+# Passo 2: Abrir uma nova aba no navegador e abrir o gmail
+# Passo 3: Abrir uma nova aba no navegador, abrir o youtube.com e pesquisar por "Jornal Jovem Pan ao vivo"
+# Passo 4: Abrir uma nova aba no navegador, abrir a "https://www.udemy.com/home/my-courses/learning/"
+# Passo 5: Abrir o aplicativo "Steam" e ir para a biblioteca
+# Passo 6: Abrir o aplicativo "Xbox" e ir para a biblioteca
+
 
 import pyautogui
-import pandas as pd
 
-# Passo 1: Entrar no Sistema da empresa: https://dlp.hashtagtreinamentos.com/python/intensivao/login
-# Abririndo o navegador chrome
+pyautogui.PAUSE = 1
 
-pyautogui.PAUSE = 0.5 # Tempo de espera entre cada comando (Em todo o código) o pyautogui.sleep(2) é um tempo de espera específico
+# Passo 1: Abrir o navegador e acessar a página do web.whatsapp.com
 
-pyautogui.press("win") # Pressiona a tecla window
-pyautogui.write("chrome") # Escreve chrome
-pyautogui.press("enter") # Pressiona a tecla enter
-pyautogui.sleep(2) # Espera 2 segundos o navegador abrir
-pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login") # Escreve o endereço do site
-pyautogui.press("enter") # Pressiona a tecla enter
+pyautogui.press("Win")
+pyautogui.write("Chrome")
+pyautogui.press("enter")
+pyautogui.write("web.whatsapp.com")
+pyautogui.press("enter")
+pyautogui.sleep(5)
 
-# Passo 2: Fazer login
-pyautogui.sleep(2) # Espera 2 segundos o site carregar
-pyautogui.click(x=3325, y=506) # Clica no campo de email
-pyautogui.write("renato.silva.192@gmail.com") # Escreve o email
-pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo de senha
-pyautogui.write("123456") # Escreve a senha
-pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo de senha
-pyautogui.press("enter") # Pressiona a tecla enter para fazer login
-pyautogui.sleep(3) # Espera 3 segundos o site carregar
+# Passo 2: Abrir uma nova aba no navegador e abrir o gmail
 
-# Passo 3: Importar a base de dados
+pyautogui.hotkey('ctrl', 't')
+pyautogui.write("http://gmail.com/")
+pyautogui.press("enter")
+pyautogui.sleep(3)
 
-tabela = pd.read_csv("Produtos.csv") # Lendo a base de dados com pandas e salvando na variável tabela
-# print(tabela) # Mostrando a tabela no console
+# Passo 3: Abrir uma nova aba no navegador, abrir o youtube.com e pesquisar por "Jornal Jovem Pan ao vivo"
 
-# Passo 4: Cadastrar 1 produto para entender o processo manual
+pyautogui.hotkey('ctrl', 't')
+pyautogui.write("youtube.com")
+pyautogui.press("enter")
+pyautogui.press('tab', presses=4)
+pyautogui.write("Jornal Jovem Pan ao vivo")
+pyautogui.press("enter")
+pyautogui.sleep(3)
+pyautogui.click(x=3258, y=430)
 
-# pyautogui.click(x=3300, y=373) # Clica no menu produtos
+# Passo 4: Abrir uma nova aba no navegador, abrir a "https://www.udemy.com/home/my-courses/learning/"
 
-# codigo = "MOLO000251"
-# pyautogui.write(codigo) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# marca = "Logitech"
-# pyautogui.write(marca) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# tipo = "Mouse"
-# pyautogui.write(tipo) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# categoria = "1"
-# pyautogui.write(categoria) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# preco_unitario = "25.95"
-# pyautogui.write(preco_unitario) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# custo = "6,50"
-# pyautogui.write(custo) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
-
-# obs = ""
-# pyautogui.write(obs) # Escreve o código do produto
-# pyautogui.press("tab") # Pressiona a tecla tab para ir para o campo
+pyautogui.hotkey('ctrl', 't')
+pyautogui.write("https://www.udemy.com/home/my-courses/learning/")
+pyautogui.press("enter")
+pyautogui.sleep(4)
 
 
-# Passo 5: Repetir para todos os produtos da base de dados usando loop for
+# Passo 5: Abrir o aplicativo "Steam" e ir para a biblioteca
 
-for linha in tabela.index: # Para cada linha na tabela faça o que está indentado abaixo
+pyautogui.press("Win")
+pyautogui.write("Xbox")
+pyautogui.press("enter")
+pyautogui.sleep(4)
 
-    pyautogui.click(x=3300, y=373) # Clica no menu produtos
+# Passo 6: Abrir o aplicativo "Xbox" e ir para a biblioteca
 
-    codigo = tabela.loc[linha, "codigo"]
-    pyautogui.write(codigo) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    marca = tabela.loc[linha, "marca"]
-    pyautogui.write(marca) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    tipo = tabela.loc[linha, "tipo"]
-    pyautogui.write(tipo) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    categoria = tabela.loc[linha, "categoria"]
-    pyautogui.write(str(categoria)) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    preco_unitario = tabela.loc[linha, "preco_unitario"]
-    pyautogui.write(str(preco_unitario)) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    custo = tabela.loc[linha, "custo"]
-    pyautogui.write(str(custo)) # Escreve o código do produto
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-
-    obs = str(tabela.loc[linha, "obs"])
-    if obs != "nan":
-        pyautogui.write(obs) # Escreve o código do produto
-    
-    pyautogui.press("tab") # Pressiona a tecla tab para ir para o proximo campo
-    pyautogui.press("enter") # Pressiona a tecla enter para salvar o produto
-    pyautogui.sleep(1) # Espera 1 segundo o site salvar o produto
-
-pyautogui.scroll(4000) # Sobe a tela para o topo da página
-
-
-
+pyautogui.press("Win")
+pyautogui.write("Steam")
+pyautogui.press("enter")
+pyautogui.sleep(7)
+pyautogui.press("Esc")
+pyautogui.click(x=240, y=64)
